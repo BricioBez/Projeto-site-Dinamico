@@ -1,0 +1,583 @@
+/* Estilos gerais */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #444444; /* Fundo escuro para o modo dark */
+    color: #ffffff; /* Texto claro */
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    width: 4px; /* Largura da barra de rolagem */
+    height: 4px; /* Altura da barra de rolagem horizontal (se necessário) */
+}
+  
+  body::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Cor do trilho */
+    border-radius: 10px; /* Borda arredondada do trilho */
+}
+  
+body::-webkit-scrollbar-thumb {
+    background: #3333ff; /* Cor do polegar (a parte que se move) */
+    border-radius: 10px; /* Borda arredondada do polegar */
+}
+  
+body::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1; /* Cor do polegar ao passar o mouse */
+}
+
+/*Modo escuro e claro*/
+body.dark {
+    background-color: #343434;
+    color: white;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+body.light {
+    background-color: #c2c2c2;
+    color: #3f3f3f;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+
+.checkbox_dark_mode{
+    opacity: 0;
+}
+
+.container {
+    display: flex; /* Alinha os itens horizontalmente */
+    align-items: center; /* Centraliza verticalmente os itens */
+    gap: 5px; /* Espaço entre o texto e o botão */
+    position: absolute; /* Permite ajustar a posição */
+    left: 72%; /* Posiciona à direita */
+    top: 3%; /* Ajusta a altura */
+    padding: 5px 10px; /* Adiciona espaço interno */
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo semitransparente */
+    border-radius: 10px; /* Cantos arredondados */
+
+}
+
+/* Estilo da label */
+.label {
+    background-color: #000000;
+    border-radius: 50px;
+    cursor: pointer;
+    justify-content: space-between;
+    position: relative;
+    padding: 8px;
+    height: 15px;
+    width: 45px;
+}
+
+.label .ball{
+    background-color: white;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 3px;
+    left: 3px;
+    height: 80%;
+    width: 40%;
+    transition: transform 0.2s linear;
+
+}
+
+.checkbox_dark_mode:checked + .label .ball{
+    transform: translateX(30px);
+}
+
+.fa-moon{
+    color: #ffffff;
+}
+
+.fa-sun{
+    color: #f2ff00;
+}
+
+/* Barra superior */
+.top-bar {
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa toda a largura */
+    color: #ffcc00; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
+    z-index: 1000; /* Garante que a barra fique acima de outros elementos */
+    border: 1px solid #000;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Adiciona a sombra */
+    background-color: #3333ff;
+}
+
+/* Conteúdo principal */
+.content {
+    padding-top: 70px; /* Evita que o conteúdo fique embaixo da barra */
+    text-align: center; /* Centraliza o texto */
+    font-size: 18px;
+}
+
+/* Título com animação RGB */
+.top-bar h1 {
+    font-family: 'Press Start 2P', cursive; /* Fonte pixelada */
+    letter-spacing: 2px; /* Espaçamento entre letras */
+    margin-right: 20px; /* Espaço entre o texto e a borda direita */
+    color: #feca57; /* Cor inicial */
+    animation: rgbCycle 3s infinite linear; /* Animação do ciclo RGB */
+    text-shadow: 3px 3px 0px #000000, 6px 6px 0px #000000; /* Efeito de sombra */
+    font-size: 36px;
+    
+}
+
+/* Animação RGB */
+@keyframes rgbCycle {
+    0% {
+        color: #ff0000; /* vermelho */
+        text-shadow: 3px 3px 0px #00ff73, 6px 6px 0px #01586b; /* verde e azul */
+    }
+    33% {
+        color: #09ff00; /* verde */
+        text-shadow: 3px 3px 0px #008181, 6px 6px 0px #ff0000; /* azul e vermelho */
+    }
+    66% {
+        color: #00757e; /* azul */
+        text-shadow: 3px 3px 0px #ff0000, 6px 6px 0px #02805e; /* vermelho e verde */
+    }
+    100% {
+        color: #ff0000; /* volta para vermelho */
+        text-shadow: 3px 3px 0px #006a94, 6px 6px 0px #03677e;
+    }
+}
+
+/* Estilo do botão com tema 8-bit */
+#logout-button {
+    font-family: 'Press Start 2P', cursive; /* Fonte 8-bit */
+    background-color: #3333ff; /* Azul vibrante para o fundo */
+    color: white; /* Texto branco */
+    border: 3px solid #000; /* Borda preta */
+    padding: 7px 7px; /* Espaçamento interno */
+    font-size: 13px; /* Tamanho da fonte pixelada */
+    text-transform: uppercase; /* Deixa o texto em maiúsculas */
+    cursor: pointer; /* Muda o cursor ao passar o mouse */
+    transition: all 0.2s ease; /* Suave ao clicar */
+    margin-right: 20px; /* Ajuste a margem à esquerda do botão */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Efeito ao passar o mouse no botão */
+#logout-button:hover {
+    background-color: #6666ff; /* Azul mais claro ao passar o mouse */
+    box-shadow: 6px 6px 0 #000; /* Aumenta o efeito de pixel */
+}
+
+/* Efeito ao pressionar o botão */
+#logout-button:active {
+    background-color: #0000cc; /* Azul mais escuro ao pressionar */
+    box-shadow: 2px 2px 0 #000; /* Reduz o efeito de sombra */
+    transform: translate(2px, 2px); /* Dá o efeito de "pressionado" */
+}
+
+#user-greeting {
+    font-size: 12px; /* Tamanho do texto */
+    color: #fff; /* Texto branco */
+    font-family: 'Press Start 2P', cursive; /* Fonte pixelada */
+    white-space: nowrap; /* Impede que o texto quebre */
+}
+
+/*LISTA BOARDS*/
+
+#boards-container {
+    margin: 10px;
+    border-radius: 10px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#load-boards-button {
+    font-family: 'Press Start 2P', cursive; /* Fonte 8-bit */
+    background-color: #3333ff; /* Azul vibrante para o fundo */
+    color: white; /* Texto branco */
+    border: 3px solid #000; /* Borda preta */
+    padding: 12px 12px; /* Espaçamento interno */
+    font-size: 13px; /* Tamanho da fonte pixelada */
+    text-transform: uppercase; /* Deixa o texto em maiúsculas */
+    cursor: pointer; /* Muda o cursor ao passar o mouse */
+    transition: all 0.2s ease; /* Suave ao clicar */
+    margin-right: 20px; /* Ajuste a margem à esquerda do botão */
+    border-radius: 10px; /* Bordas arredondadas */
+    margin-left: 2.5%;
+}
+
+
+
+#load-boards-button:hover {
+    background-color: #6666ff; /* Azul mais claro ao passar o mouse */
+    box-shadow: 6px 6px 0 #000; /* Aumenta o efeito de pixel */
+}
+
+/* Efeito ao pressionar o botão */
+#load-boards-button:active {
+    background-color: #0000cc; /* Azul mais escuro ao pressionar */
+    box-shadow: 2px 2px 0 #000; /* Reduz o efeito de sombra */
+    transform: translate(2px, 2px); /* Dá o efeito de "pressionado" */
+    transition: all 0.2s ease; /* Suave ao clicar */
+}
+
+
+
+#boards-list {
+    list-style: none; /* Remove os marcadores padrão */
+    padding: 5px; /* Espaçamento interno */
+    margin: 5px 0; /* Espaçamento externo */
+    background-color: #222; /* Fundo escuro */
+    border-radius: 5px; /* Bordas arredondadas */
+    max-height: 300px; /* Altura fixa */
+    overflow-y: auto; /* Barra de rolagem vertical */
+    width: 300px; /* Largura fixa */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para destaque */
+    display: none; /* Começa oculta */
+    z-index: 10; /* Garante que a lista fique por cima dos outros elementos */
+    position: absolute; /* Posiciona a lista sobre outros elementos */
+    margin-left: 2.5%;
+}
+
+/* Estilo dos itens da lista */
+#boards-list li {
+    background-color: #444; /* Fundo dos itens */
+    color: #fff; /* Cor do texto */
+    margin: 5px 0; /* Espaço entre os itens */
+    padding: 8px; /* Espaçamento interno */
+    border-radius: 3px; /* Bordas arredondadas nos itens */
+    cursor: pointer; /* Cursor de clique */
+    transition: background-color 0.3s; /* Efeito ao passar o mouse */
+    overflow-x: hidden;
+}
+
+/* Efeito ao passar o mouse nos itens */
+#boards-list li:hover {
+    background-color: #666; /* Fundo mais claro */
+}
+
+/* Personalização da barra de rolagem */
+#boards-list::-webkit-scrollbar {
+    width: 15px; /* Largura da barra de rolagem */
+}
+
+#boards-list::-webkit-scrollbar-track {
+    background: #333; /* Fundo da trilha da barra de rolagem */
+    border-radius: 15px; /* Bordas arredondadas */
+}
+
+#boards-list::-webkit-scrollbar-thumb {
+    background: #555; /* Cor da barra de rolagem */
+    border-radius: 5px; /* Bordas arredondadas */
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5); /* Efeito de profundidade */
+}
+
+/* Efeito ao passar o mouse na barra de rolagem */
+#boards-list::-webkit-scrollbar-thumb:hover {
+    background: #777; /* Cor mais clara ao passar o mouse */
+}
+/*------------------------------------------------------------------------------------*/
+
+
+/* Contêiner que abriga as colunas */
+#columns-container {
+    display: flex; /* Flexbox para dispor as colunas horizontalmente */
+    gap: 20px; /* Espaço entre as colunas */
+    overflow-x: auto ; /* Permite rolar as colunas horizontalmente, se necessário */
+    padding: 30px;
+    flex-wrap: nowrap; /* Impede que as colunas se quebrem em várias linhas */
+    margin-left: 0.5%;
+    
+}
+
+/* Estilo para cada coluna */
+.column {
+    background-color: #f4f4f9; /* Cor de fundo leve */
+    border-radius: 10px; /* Bordas arredondadas */
+    width: 300px; /* Largura fixa para cada coluna */
+    min-height: 400px; /* Tamanho mínimo de altura */
+    padding: 15px;
+    box-shadow: 10px 4px 5px rgba(0, 0, 0, 0.1); /* Sombras sutis para dar profundidade */
+    display: flex;
+    flex-direction: column; /* Organiza os elementos dentro da coluna verticalmente */
+    background-color: #fff;
+    font-size: 15px;
+    position: relative; /* Necessário para posicionar o botão */
+}
+
+
+
+/* Título da coluna */
+.column h3 {
+
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0px;
+    position: relative;
+    padding-bottom: 8px;
+    color: black;
+}
+
+.column h3::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px; /* Altura da linha */
+    background-color: #333; /* Cor da linha */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* Estilo para o título do board */
+.board-title {
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 10px;
+    display: 1;
+    font-size: 22px;
+}
+
+.task {
+    color: black;
+    margin: 8px 0px;
+    border-radius: 3px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.fa-solid{
+    margin-left: 99%;
+    top: 40%;
+    overflow-x: hidden;
+}
+
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 200px;
+    margin-left: 2.5%;
+    color: black;
+    margin-top: 15px;
+    text-transform: uppercase;
+}
+
+.modal-content h3 {
+    margin-bottom: 15px;
+}
+
+.modal-content input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#save-column-button {
+    background-color: #3333ff;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Press Start 2P', cursive;
+    margin-right: 30%;
+    margin-left: 20%;
+}
+
+#save-column-button:hover {
+    background-color: #6666ff; /* Azul mais claro ao passar o mouse */
+    box-shadow: 6px 6px 0 #000; /* Aumenta o efeito de pixel */
+}
+
+/* Efeito ao pressionar o botão */
+#save-column-button:active {
+    background-color: #0000cc; /* Azul mais escuro ao pressionar */
+    box-shadow: 2px 2px 0 #000; /* Reduz o efeito de sombra */
+    transform: translate(2px, 2px); /* Dá o efeito de "pressionado" */
+    transition: all 0.2s ease; /* Suave ao clicar */
+}
+
+/* Botão de excluir fixo no final da coluna */
+.delete-column-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 11px;
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    margin-top: auto;
+    align-self: center;
+    margin-right: 9%;
+}
+
+.delete-column-button:hover {
+    background-color: #f86060;
+    box-shadow: 6px 6px 0 #000;
+}
+
+.delete-column-button:active {
+    background-color: #ff0000;
+    box-shadow: 2px 2px 0 #000;
+    transform: translate(2px, 2px);
+    transition: all 0.2s ease;
+}
+
+
+
+.modal-content-task {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 200px;
+    margin-left: 17%;
+    color: black;
+    margin-top: 15px;
+    text-transform: uppercase;
+}
+
+.modal-content-task input {
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#modal-container {
+    display: flex; /* Alinha os modais lado a lado */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Alinha verticalmente */
+    margin-right: 67%;
+
+  }
+
+  .add-task-button {
+    background-color: #3333ff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 11px;
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    margin-top: auto;
+    align-self: center;
+    /* margin-left: 20%; */
+    margin-right: 9%;
+}
+  
+.add-task-button:hover {
+    background-color:#6666ff;
+    box-shadow: 6px 6px 0 #000;
+}
+  
+.add-task-button:active {
+    background-color: #3333ff;
+    box-shadow: 2px 2px 0 #000;
+    transform: translate(2px, 2px);
+}
+  
+#add-task-button{
+    background-color: #3333ff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 11px;
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    align-self: center;
+    margin-right: 30%;
+    margin-left: 20%;
+}
+
+#add-task-button:hover {
+    background-color:#6666ff;
+    box-shadow: 6px 6px 0 #000;
+}
+
+#add-task-button:active {
+    background-color: #3333ff;
+    box-shadow: 2px 2px 0 #000;
+    transform: translate(2px, 2px);
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: auto; /* Empurra os botões para o final */
+    position: absolute;
+    bottom: 10px;
+}
+
+.task-item{
+    margin-bottom: 6%;
+    color: black;
+    color: black;
+    margin: 8px 0px;
+    border-radius: 3px;
+}
+
+.delete-task-button {
+    color: #ff4d4d;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+}
+
+.delete-task-button:hover {
+    color:#f86060;
+
+}
+
+.delete-task-button:active {
+    color: #ff4d4d;
+    transform: translate(1px, 1px);
+}
