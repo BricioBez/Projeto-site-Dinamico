@@ -1,1 +1,134 @@
+/* Centralizar o formulário */
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Press Start 2P', cursive;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #01015c;
+    
+}
+div {
+    background-color: #ffffff;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilo do campo de entrada */
+form div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    margin-bottom: 1px;
+    font-size: 13px;
+    color: #000000;
+    display: flex;
+}
+
+input[type="email"] {
+    padding: 10px;
+    border: 2px solid #0000003f;
+    border-radius: 5px;
+    font-size: 12px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input[type="email"]:focus {
+    border-color: #3333ff; /* azul para foco */
+}
+
+#mensagem-erro{
+    padding: 10px;
+}
+
+/* Efeito ao passar o mouse no botão */
+button:hover {
+    background-color: #6666ff; /* Azul mais claro ao passar o mouse */
+    box-shadow: 6px 6px 0 #000; /* Aumenta o efeito de pixel */
+}
+
+/* Efeito ao pressionar o botão */
+button:active {
+    background-color: #0000cc; /* Azul mais escuro ao pressionar */
+    box-shadow: 2px 2px 0 #000; /* Reduz o efeito de sombra */
+    transform: translate(2px, 2px); /* Dá o efeito de "pressionado" */
+}
+
+
+/* Estilo do botão */
+button {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #3333ff;
+    color: white;
+    border: 3px solid #000;
+    padding: 15px 35%;
+    font-size: 13px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-right: 20px;
+    border-radius: 5px;
+    align-items: center;
+}
+
+button:hover {
+    background-color: #296bfa; /* azul mais escuro ao passar o mouse */
+}
+
+button:active {
+    background-color: #152d7b; /* azul ainda mais escuro ao clicar */
+}
+
+/* estilo do titulo */
+.titulo {
+    font-size: 28px;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    color: #feca57;
+    margin-bottom: 20px;
+    animation: rgbCycle 3s infinite linear;
+    text-shadow: 3px 3px 0px #ff6b6b, 6px 6px 0px #1dd1a1;
+}
+
+/* animacao rgb */
+@keyframes rgbCycle {
+    0% {
+        color: #ff0000; /* vermelho */
+        text-shadow: 3px 3px 0px #11ff00, 6px 6px 0px #00d0ff; /* verde e azul */
+    }
+    33% {
+        color: #00ff00; /* verde */
+        text-shadow: 3px 3px 0px #000dff, 6px 6px 0px #ff0000; /* azul e vermelho */
+    }
+    66% {
+        color: #0000ff; /* azul */
+        text-shadow: 3px 3px 0px #ff0000, 6px 6px 0px #00ffbb; /* vermelho e verde */
+    }
+    100% {
+        color: #ff0000; /* volta para vermelho */
+        text-shadow: 3px 3px 0px #00ff22, 6px 6px 0px #00d0ff;
+    }
+}
+
 
