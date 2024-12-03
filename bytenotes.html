@@ -1,1 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8-ByteNotes</title>
 
+    <link rel="stylesheet" href="/tela ByteNotes/bytenotes.css" >
+    <script type="module" src="/tela ByteNotes/bytenotes.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/998c60ef77.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ae505c4bd8.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="light">
+     <!-- Barra superior -->
+    <div class="top-bar">
+        <h1>8-ByteNotes</h1>
+    
+        <div class="container">
+            <span id="user-greeting"></span>
+            <button id="logout-button">Logout</button>
+
+           <input type="checkbox" class="checkbox_dark_mode" id="dark_mode">
+                          
+            <label class="label" for="dark_mode">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <div class="ball"></div>
+          </label>
+        </div>
+
+
+    </div>
+
+    <div id="boards-container">
+        <button id="load-boards-button">Selecionar Boards</button>
+        <ul id="boards-list"></ul>
+
+        <div id="board-title" class="board-title"></div>
+
+        <div id="modal-container">
+          <div id="add-column-modal" class="hidden">
+            <div class="modal-content">
+              <label for="new-column-title">Titulo da Coluna:</label>
+              <input type="text" id="new-column-title" />
+              <button id="save-column-button">adicionar Coluna</button>
+            </div>
+          </div>
+        
+          <div id="add-task-modal" class="hiddentask">
+            <div class="modal-content-task">
+              <label for="new-task-title">Titulo da tarefa:</label>
+              <input type="text" id="new-task-title"/>
+              <button id="add-task-button" class="add-task-button">Adicionar Tarefa</button>
+            </div>
+          </div>
+        </div>
+        
+    </div>
+
+    
+
+    <div id="columns-container" class="quadro-tarefas"></div>
+
+    
+
+</body>
+</html>
