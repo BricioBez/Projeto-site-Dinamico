@@ -43,4 +43,4 @@ O site possibilitará ao usuário acessar e manipular dados provenientes de um s
 - **index.html**: Estrutura principal da página.
 - **styles.css**: Estilos e design do site, incluindo suporte para temas escuro e claro.
 - **script.js**: Lógica de interação e conexão com o back-end via APIs.
-- **auth.js**: Gerenciamento de
+
