@@ -13,7 +13,9 @@ let isBoardsVisible = false; // Estado para controlar a visibilidade da lista
 
 //----------------------------------------------------------------------------------------------------------------------------
 
-// LISTA DE BOARDS
+
+//FUNCAO DE CARREGAMENTOS DE COLUNAS, TAREFAS E BOARDS
+
 
 // Evento para carregar e alternar visibilidade dos boards
 loadBoardsButton.addEventListener("click", async () => {
@@ -58,10 +60,6 @@ function appendBoardsToList(boards) {
         boardsList.appendChild(listItem);
     });
 }
-
-//------------------------------------------------------------------------------------------------------------------------
-
-//COLUNAS 
 
 // Evento para carregar colunas e tarefas ao clicar em um board
 document.getElementById("boards-list").addEventListener("click", async (event) => {
@@ -196,28 +194,8 @@ async function carregarTarefas(columnId, tarefasContainer) {
     }
 }
 
-// Função para excluir uma coluna
-async function excluirColuna(columnId) {
-    const confirmDelete = confirm("Tem certeza que deseja excluir esta coluna?");
-    if (confirmDelete) {
-        try {
-            const response = await fetch(`${API_BASE_URL}/Column?ColumnId=${columnId}`, {
-                method: "DELETE"
-            });
 
-            if (!response.ok) throw new Error("Erro ao excluir a coluna");
-
-            // Remove a coluna do DOM
-            const colunaElement = document.querySelector(`.column[data-column-id='${columnId}']`);
-            if (colunaElement) {
-                colunaElement.remove();
-            }
-        } catch (error) 
-    {}}
-
-}
-
-// Função para carregar boards (se já não existir no seu código)
+// Função para carregar boards
 async function carregarBoards() {
     try {
         const response = await fetch(`${API_BASE_URL}/Boards`);
@@ -275,7 +253,7 @@ chk.addEventListener('change', () => {
 
 //----------------------------------------------------------------------------------------------------------------------------
 
-//LOGOUT DO SITE
+//FUNCAO PARA DAR O LOGOUT DO SITE
 
 // funcao para realizar o logout
 function realizarLogout() {
@@ -287,7 +265,7 @@ logoutButton.addEventListener('click', realizarLogout);
 
 //----------------------------------------------------------------------------------------------------------------------------
 
-//NOME AO LADO DO LOGOUT
+//FUNCAO PARA O NOME AO LADO DO LOGOUT
 
 async function showUserGreeting() {
     const userData = JSON.parse(localStorage.getItem("user")); 
@@ -310,6 +288,10 @@ document.addEventListener("DOMContentLoaded", showUserGreeting);
 
 //------------------------------------------------------------------------------------------------------------------------------
 
+
+//FUNCAO PARA EXCLUIR COLUNAS E TAREFAS
+
+
 // Função para excluir tarefa
 async function excluirTarefa(taskId, taskElement) {
     const confirmDelete = confirm("Tem certeza que deseja excluir esta tarefa?");
@@ -329,6 +311,34 @@ async function excluirTarefa(taskId, taskElement) {
         alert("Não foi possível excluir a tarefa. Tente novamente.");
     }
 }
+
+// Função para excluir uma coluna
+async function excluirColuna(columnId) {
+    const confirmDelete = confirm("Tem certeza que deseja excluir esta coluna?");
+    if (confirmDelete) {
+        try {
+            const response = await fetch(`${API_BASE_URL}/Column?ColumnId=${columnId}`, {
+                method: "DELETE"
+            });
+
+            if (!response.ok) throw new Error("Erro ao excluir a coluna");
+
+            // Remove a coluna do DOM
+            const colunaElement = document.querySelector(`.column[data-column-id='${columnId}']`);
+            if (colunaElement) {
+                colunaElement.remove();
+            }
+        } catch (error) 
+    {}}
+
+}
+
+
+//------------------------------------------------------------------------------------------------------------------------------
+
+
+//FUNCAO PARA CRIAR COLUNAS E TAREFAS
+
 
 // Botões para abrir o modal
 const saveColumnButton = document.getElementById("save-column-button");
@@ -503,9 +513,6 @@ saveColumnButton.addEventListener("click", async () => {
         alert("Não foi possível criar a coluna. Tente novamente.");
     }
 });
-
-
-
 
 //--------------------------------------------------------------------------------------------------------------------------------\
 
